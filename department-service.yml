@@ -1,0 +1,20 @@
+spring:
+  #application:
+    #name: DEPARTMENT-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/department
+    username: department
+    password: department
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update #Hibernate cria automaticamente as tabelas
+    open-in-view: false #Best practice in modern Spring Boot apps (especially REST APIs) is to set spring.jpa.open-in-view=false and fetch all required data in the service layer.
+server:
+  port: 8080 #Mudanca da porta em que a APP inicia. 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
