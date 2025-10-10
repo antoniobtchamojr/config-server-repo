@@ -13,7 +13,7 @@ spring:
       ddl-auto: update #Hibernate cria automaticamente as tabelas
     open-in-view: false #Best practice in modern Spring Boot apps (especially REST APIs) is to set spring.jpa.open-in-view=false and fetch all required data in the service layer.
   boot:
-    message: Hello, Employee Service Updated Again.  
+    message: Hello, Employee Service Spring Cloud Bus Demo.
 server:
   port: 8081 #8081 #Mudanca da porta em que a APP inicia.
 department:
