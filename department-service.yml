@@ -20,14 +20,27 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-management:
+management: #   <!-- Config distributed tracing using Micrometer(Replacing Spring Sleuth) and Zipkin. Auxilia no tracing do fluxo de chamamento de APIs entre os microservicos e o tempo de chamamento do servico.-->
   tracing:
     sampling:
       probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include:
+        - metrics, prometheus, health, info
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
 logging:
   pattern:
     level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
   level:
     org:
       springframework:
-        web: DEBUG
+        web: DEBUG 
