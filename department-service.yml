@@ -32,6 +32,10 @@ management: #   <!-- Config distributed tracing using Micrometer(Replacing Sprin
   zipkin:
     tracing:
       endpoint: http://localhost:9411/api/v2/spans
+  metrics:
+    export:
+      prometheus:
+        enabled: true
 logging:
   level:
     org.springframework.boot.autoconfigure: DEBUG
