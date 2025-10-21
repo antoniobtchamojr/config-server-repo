@@ -50,4 +50,8 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG 
+        web: DEBUG
+    io:
+      micrometer: DEBUG
+      zipkin2: DEBUG
+    brave: DEBUG 
