@@ -32,22 +32,4 @@ management: #   <!-- Config distributed tracing using Micrometer(Replacing Sprin
   zipkin:
     tracing:
       endpoint: http://localhost:9411/api/v2/spans
-  metrics:
-    distribution:
-      percentiles-histogram:
-        http.server.requests: true
-  prometheus:
-    metrics:
-      export:
-        enabled: true
-logging:
-  pattern:
-    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
-  level:
-    org:
-      springframework:
-        web: DEBUG
-    io:
-      micrometer: DEBUG
-      zipkin2: DEBUG
-    brave: DEBUG 
+
