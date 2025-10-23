@@ -28,31 +28,11 @@ eureka:
 management: #   <!-- Config distributed tracing using Micrometer(Replacing Spring Sleuth) and Zipkin. Auxilia no tracing do fluxo de chamamento de APIs entre os microservicos e o tempo de chamamento do servico.-->
   tracing:
     sampling:
-      probability: 1.0
-  endpoints:
-    web:
-      exposure:
-        include:
-        - "*"
+      probability: 1.0  # 100% sampling for dev, adjust for production
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
-  metrics:
-    distribution:
-      percentiles-histogram:
-        http.server.requests: true
-  prometheus:
-    metrics:
-      export:
-        enabled: true
-logging:
-  pattern:
-    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
-  level:
-    org:
-      springframework:
-        web: DEBUG
-    io:
-      micrometer: DEBUG
-      zipkin2: DEBUG
-    brave: DEBUG 
+      endpoint: http://172.19.12.65:9411/api/v2/spans
+  # Optional: Export traces to logs for debugging
+  otlp:
+    tracing:
+      endpoint: http://172.19.12.65:9411/api/v2/spans
