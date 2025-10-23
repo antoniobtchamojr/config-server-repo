@@ -26,10 +26,10 @@ management: #   <!-- Config distributed tracing using Micrometer(Replacing Sprin
       probability: 1.0  # 100% sampling for dev, adjust for production
   zipkin:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://172.19.12.65:9411/api/v2/spans
   # Optional: Export traces to logs for debugging
   otlp:
     tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://172.19.12.65:9411/api/v2/spans
 
 
