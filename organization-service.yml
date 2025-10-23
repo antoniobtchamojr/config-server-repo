@@ -14,4 +14,8 @@ spring:
     open-in-view: false #Best practice in modern Spring Boot apps (especially REST APIs) is to set spring.jpa.open-in-view=false and fetch all required data in the service layer.
 server:
   port: 8083
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
