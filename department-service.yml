@@ -22,16 +22,14 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 management: #   <!-- Config distributed tracing using Micrometer(Replacing Spring Sleuth) and Zipkin. Auxilia no tracing do fluxo de chamamento de APIs entre os microservicos e o tempo de chamamento do servico.-->
   tracing:
-    enabled: true
     sampling:
-      probability: 1.0
+      probability: 1.0  # 100% sampling for dev, adjust for production
   zipkin:
     tracing:
       endpoint: http://localhost:9411/api/v2/spans
-  endpoints:
-    web:
-      exposure:
-        include: 
-        - "*"
+  # Optional: Export traces to logs for debugging
+  otlp:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
 
 
