@@ -47,7 +47,7 @@ management: #   <!-- Config distributed tracing using Micrometer(Replacing Sprin
     health:
       show-details: always
 resilience4j:
-  circuitbreaker:
+  circuitbreaker: #Circuit Breaker config
     instances:
       EMPLOYEE-SERVICE: #$Spring.application.name
         registerHealthIndicator: true
@@ -58,3 +58,8 @@ resilience4j:
         permitted-number-of-calls-in-half-open-state: 3
         sliding-window-size: 10
         sliding-window-type: COUNT_BASED
+  retry: #Retry Implementation Config
+    instances:
+      EMPLOYEE-SERVICE:
+        max-attempts: 5
+        wait-duration: 1s
