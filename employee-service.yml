@@ -36,3 +36,25 @@ management: #   <!-- Config distributed tracing using Micrometer(Replacing Sprin
   otlp:
     tracing:
       endpoint: http://172.19.12.65:9411/api/v2/spans
+  health:
+    circuitbreakers:
+      enabled: true #   <!-- Circuit Breaker Impl. Previne chamada a serviços da API que estão em baixo e define respostas padrão, ao invês de esperar pelo timeout. Previne um microserviço indisponível em sabotar todos os microserviços. Funciona para chamadas usando Webclient-->
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+resilience4j:
+  circuitbreaker:
+    instances:
+      EMPLOYEE-SERVICE: #$Spring.application.name
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: COUNT_BASED
