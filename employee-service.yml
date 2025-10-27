@@ -21,6 +21,11 @@ department:
   getDepartmentByCodePath: /api/department/getDepartmentByCode/
   url-name: DEPARTMENT-SERVICE
   load-balancer-name: DEPARTMENT-SERVICE #Load balancing. URL que esta no Eureka Server (http:localhost:8671/eureka) para permitr balanceamentod e carga. O Eureka Server ja vem com isso. Fica no Aplication Name
+organization:
+  web-service-base-url: http://localhost:8083
+  getDepartmentByCodePath: /api/organization/getOrganizationByCode/
+  url-name: ORGANIZATION-SERVICE
+  load-balancer-name: ORGANIZATION-SERVICE #Load balancing. URL que esta no Eureka Server (http:localhost:8671/eureka) para permitr balanceamentod e carga. O Eureka Server ja vem com isso. Fica no Aplication Name
 eureka:
   client:
     service-url:
