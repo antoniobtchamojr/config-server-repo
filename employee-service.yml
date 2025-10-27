@@ -14,7 +14,7 @@ spring:
     open-in-view: false #Best practice in modern Spring Boot apps (especially REST APIs) is to set spring.jpa.open-in-view=false and fetch all required data in the service layer.
   boot:
     message: Hello, Employee Service Spring Cloud Bus Demo.
-  rabbitmq:
+  rabbitmq: # <!-- Config Spring Cloud Bus: Melhor solucao para actualizacao das propriedades do Config-Server sem reiniciar as APPs. Chamamos a propriedade: http://localhost:8080/actuator/busrefresh.-->
     host: localhost
     port: 5672
     username: guest
