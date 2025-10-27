@@ -36,3 +36,7 @@ management: #   <!-- Config distributed tracing using Micrometer(Replacing Sprin
   otlp:
     tracing:
       endpoint: http://172.19.12.65:9411/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include: "*"
