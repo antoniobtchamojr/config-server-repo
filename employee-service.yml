@@ -22,7 +22,7 @@ spring:
 server:
   port: 8081 #8081 #Mudanca da porta em que a APP inicia.
 department:
-  web-service-base-url: http://localhost:8080
+  web-service-base-url: http://localhost:8082
   getDepartmentByCodePath: /api/department/getDepartmentByCode/
   url-name: DEPARTMENT-SERVICE
   load-balancer-name: DEPARTMENT-SERVICE #Load balancing. URL que esta no Eureka Server (http:localhost:8671/eureka) para permitr balanceamentod e carga. O Eureka Server ja vem com isso. Fica no Aplication Name
